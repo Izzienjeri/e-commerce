@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Template from "./template/Template";
+import ProductDetail from "./products/detail/ProductDetail";
+import { Routes, Route } from "react-router-dom";
+import Landing from "./landing/Landing";
+import ProductList from "./products/ProductList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Template>
+      <Routes>
+        <Route path="/products" element={<ProductList />} />
+        <Route path="/products/:slug" element={<ProductDetail />} />
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </Template>
   );
 }
 
